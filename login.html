@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+        width: 100vw;
+        height: 100%;
+
+       background-image: url("./mac.jpeg");
+       background-repeat: no-repeat;
+       background-size: cover;
+
+        }
+
+
+
+      #div {
+        border: 2px solid;
+        text-align: center;
+        padding: 10px;
+        width: 500px;
+        height: 400px;
+        margin-top: 180px;
+        margin-left: 450px;
+        background: rgba( 229, 223, 223, 0.5 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 0px );
+      -webkit-backdrop-filter: blur( 0px );
+     border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+
+       }
+
+       #frm{
+        margin-top: 100px;
+        font-weight: bolder;
+        font-size: large;
+
+       }
+      #user,#pass {
+        width: 250px;
+        height: 25px;
+        font-size: medium;
+        font-family:'Courier New', Courier, monospace;
+        color: black;
+        font-weight:300;
+       
+
+
+       }
+
+       h2{
+        font-style: italic;
+
+       }
+       #submit{
+        background-color: rgb(0, 38, 255);
+        
+        border: 1px solid rgb(6, 22, 170);
+        color: white;
+        width: 100px;
+        height: 35px;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: medium;
+
+       }
+      h1 {
+        color: rgb(23, 23, 181);
+        margin-left: 0px;
+        
+    
+       }
+       svg{
+        margin-top: -100px;
+
+       }
+      
+      
+    </style>
+</head>
+<body>
+    
+    <div id="div">
+    <h1 >Welcome to here!</h1>
+       <form id="frm">
+        <h2 >Login</h2>
+        <input type="text"  id="user" placeholder="username" ><br><br>
+        <input type="password"  id="pass" placeholder="Password" ><br><br>
+       
+        <input type="submit" value="login Here!" id="submit">
+    </form>
+    </div>
+   
+
+
+    <script>
+        var get_submit=document.getElementById("submit");
+     let arr=[];
+        get_submit.addEventListener("click",(event)=>{
+            event.preventDefault()
+
+
+           
+
+
+          
+var user = document.getElementById("user").value;
+var pass = document.getElementById("pass").value;
+
+console.log(user, pass);
+
+var data = JSON.parse(localStorage.getItem("Register"));
+console.log(data);
+
+let array = [];
+for (let i = 0; i < data.length; i++) {
+    if (data[i].User === user) {
+        array.push(data[i]);
+    }
+}
+console.log(array)
+// console.log(array, "data");
+// console.log(array.length);
+
+if (array.length >0) {
+    console.log(array[0].User);
+    if (array[0].User == user && array[0].Pass == pass) {
+        alert("User login Successful!");
+    } else {
+        alert("Username or password are incorrect");
+    }
+} else {
+    alert("No registered users found. Please register.");
+}
+  window.location.assign("./products.html")
+})
+          
+</script>
+ </body>
+ </html>
